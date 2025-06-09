@@ -62,7 +62,8 @@ class SpriteController<T> extends ChangeNotifier {
   /// ```
   ///
   /// Throws an assertion error if the map is empty.
-  SpriteController(this.animations) : assert(animations.isNotEmpty, 'Animations map cannot be empty.');
+  SpriteController(this.animations)
+      : assert(animations.isNotEmpty, 'Animations map cannot be empty.');
 
   /// The animation key currently playing.
   T? get currentAnimation => _currentAnimation;
@@ -73,7 +74,9 @@ class SpriteController<T> extends ChangeNotifier {
   Offset get offsetFrame => _currentFrame;
 
   int get frame {
-    return (_currentFrame.dx + _currentFrame.dy * ((currentAnimationSheet?.columns ?? 1))).toInt();
+    return (_currentFrame.dx +
+            _currentFrame.dy * ((currentAnimationSheet?.columns ?? 1)))
+        .toInt();
   }
 
   /// Whether the animation is actively playing.
@@ -114,7 +117,9 @@ class SpriteController<T> extends ChangeNotifier {
   void play({T? animation}) {
     /// Set current animation sheet to play if new animation is provided
     /// and it exists in the animations map.
-    if (animation != null && _currentAnimation != animation && animations.containsKey(animation)) {
+    if (animation != null &&
+        _currentAnimation != animation &&
+        animations.containsKey(animation)) {
       _currentAnimation = animation;
       _currentFrame = Offset.zero;
     }
@@ -163,7 +168,8 @@ class SpriteController<T> extends ChangeNotifier {
   void stop() {
     _isPlaying = false;
     _currentFrame = currentAnimationSheet?.isReversed == true
-        ? Offset((currentAnimationSheet?.columns ?? 1) - 1, (currentAnimationSheet?.rows ?? 1) - 1)
+        ? Offset((currentAnimationSheet?.columns ?? 1) - 1,
+            (currentAnimationSheet?.rows ?? 1) - 1)
         : Offset.zero;
     _ticker?.cancel();
     _ticker = null;

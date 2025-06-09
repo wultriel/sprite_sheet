@@ -42,8 +42,10 @@ class _CharAnimationState extends State<CharAnimation> {
     _loadImages().then((images) {
       setState(() {
         controller = SpriteController<CharState>({
-          CharState.run: AnimationSheet(image: images.$1, columns: 4, rows: 1, isLooping: true),
-          CharState.idle: AnimationSheet(image: images.$2, columns: 6, rows: 1, isLooping: true),
+          CharState.run: AnimationSheet(
+              image: images.$1, columns: 4, rows: 1, isLooping: true),
+          CharState.idle: AnimationSheet(
+              image: images.$2, columns: 6, rows: 1, isLooping: true),
         });
 
         controller?.play(animation: CharState.idle);

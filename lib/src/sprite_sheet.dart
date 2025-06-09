@@ -59,10 +59,12 @@ class SpriteSheet<T> extends LeafRenderObjectWidget {
   });
 
   @override
-  RenderObject createRenderObject(BuildContext context) => _RenderSprite(controller: controller, glow: glow);
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderSprite(controller: controller, glow: glow);
 
   @override
-  void updateRenderObject(BuildContext context, covariant RenderObject renderObject) =>
+  void updateRenderObject(
+          BuildContext context, covariant RenderObject renderObject) =>
       (renderObject as _RenderSprite<T>)
         ..controller = controller
         ..glow = glow
@@ -127,7 +129,8 @@ class _RenderSprite<T> extends RenderBox {
     } else {
       size = Size(
         clampDouble(width * scale, constraints.minWidth, constraints.maxWidth),
-        clampDouble(height * scale, constraints.minHeight, constraints.maxHeight),
+        clampDouble(
+            height * scale, constraints.minHeight, constraints.maxHeight),
       );
     }
   }
@@ -179,16 +182,21 @@ class _RenderSprite<T> extends RenderBox {
         animation.height,
       );
 
-      final dstRect = Rect.fromLTWH(offset.dx, offset.dy, width * scale, height * scale);
+      final dstRect =
+          Rect.fromLTWH(offset.dx, offset.dy, width * scale, height * scale);
 
       /// Draw glow effect.
       final glow = this.glow;
       if (glow != null) {
-        final frame = controller.offsetFrame.dx + controller.offsetFrame.dy * animation.columns;
+        final frame = controller.offsetFrame.dx +
+            controller.offsetFrame.dy * animation.columns;
 
         final paintGlow = Paint()
-          ..colorFilter = ColorFilter.mode(glow.colorDelegate.getColor(animation, frame.toInt()), BlendMode.srcIn)
-          ..imageFilter = ImageFilter.blur(sigmaX: glow.blurX, sigmaY: glow.blurY);
+          ..colorFilter = ColorFilter.mode(
+              glow.colorDelegate.getColor(animation, frame.toInt()),
+              BlendMode.srcIn)
+          ..imageFilter =
+              ImageFilter.blur(sigmaX: glow.blurX, sigmaY: glow.blurY);
 
         canvas.saveLayer((offset & size).inflate(100), paintGlow);
         canvas.drawImageRect(
@@ -196,14 +204,16 @@ class _RenderSprite<T> extends RenderBox {
           srcRect,
           dstRect,
           Paint()
-            ..imageFilter = ImageFilter.dilate(radiusX: glow.thicknessX, radiusY: glow.thicknessY)
+            ..imageFilter = ImageFilter.dilate(
+                radiusX: glow.thicknessX, radiusY: glow.thicknessY)
             ..filterQuality = FilterQuality.none
             ..isAntiAlias = false,
         );
         canvas.restore();
       }
 
-      canvas.drawImageRect(animation.image, srcRect, dstRect, Paint()..filterQuality = FilterQuality.none);
+      canvas.drawImageRect(animation.image, srcRect, dstRect,
+          Paint()..filterQuality = FilterQuality.none);
     }
 
     layer = context.pushTransform(

@@ -82,7 +82,11 @@ void main() {
 
     test('addToQueue plays next animation after current ends', () async {
       final run = AnimationSheet(
-          image: image, columns: 2, rows: 1, isLooping: false, frameDuration: Duration(milliseconds: 10));
+          image: image,
+          columns: 2,
+          rows: 1,
+          isLooping: false,
+          frameDuration: Duration(milliseconds: 10));
       final idle = AnimationSheet(image: image, columns: 2, rows: 1);
 
       final controller = SpriteController({'run': run, 'idle': idle});

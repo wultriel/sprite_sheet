@@ -29,7 +29,8 @@ class _SparklesAnimationState extends State<SparklesAnimation> {
     _loadImage().then((image) {
       setState(() {
         controller = SpriteController<String>({
-          '': AnimationSheet(image: image, columns: 1, rows: 7, isLooping: true),
+          '': AnimationSheet(
+              image: image, columns: 1, rows: 7, isLooping: true),
         });
 
         controller?.play(animation: '');
@@ -57,7 +58,12 @@ class _SparklesAnimationState extends State<SparklesAnimation> {
                           controller: controller,
                           glow: SpriteGlow.dynamicColor(
                             colorCallback: (animation, frame) =>
-                                HSLColor.fromAHSL(1, frame / animation.totalFrames * 360, 1, 0.5).toColor(),
+                                HSLColor.fromAHSL(
+                                        1,
+                                        frame / animation.totalFrames * 360,
+                                        1,
+                                        0.5)
+                                    .toColor(),
                             thicknessX: 5,
                             thicknessY: 5,
                             blurY: 25,

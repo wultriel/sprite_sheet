@@ -42,7 +42,8 @@ class _EyesAnimationState extends State<EyesAnimation> {
     _loadImages().then((images) {
       setState(() {
         controller = SpriteController<EyesState>({
-          EyesState.appear: AnimationSheet(image: images.$1, columns: 9, rows: 1, isLooping: false),
+          EyesState.appear: AnimationSheet(
+              image: images.$1, columns: 9, rows: 1, isLooping: false),
           EyesState.idle: AnimationSheet(
             image: images.$2,
             columns: 8,
@@ -77,7 +78,12 @@ class _EyesAnimationState extends State<EyesAnimation> {
                           controller: controller,
                           glow: SpriteGlow.dynamicColor(
                             colorCallback: (animation, frame) =>
-                                HSLColor.fromAHSL(1, frame / animation.totalFrames * 360, 1, 0.9).toColor(),
+                                HSLColor.fromAHSL(
+                                        1,
+                                        frame / animation.totalFrames * 360,
+                                        1,
+                                        0.9)
+                                    .toColor(),
                             thicknessX: 25,
                             thicknessY: 25,
                             blurY: 15,

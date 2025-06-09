@@ -155,5 +155,6 @@ class GlowDynamicColor extends GlowColorDelegate {
   GlowDynamicColor(this.color);
 
   @override
-  Color getColor(AnimationSheet animation, int frame) => color.call(animation, frame);
+  Color getColor(AnimationSheet animation, int frame) =>
+      color.call(animation, frame);
 }

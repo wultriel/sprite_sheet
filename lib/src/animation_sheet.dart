@@ -82,8 +82,10 @@ class AnimationSheet {
     this.isLooping = true,
     this.axis = Axis.horizontal,
     this.direction = AnimationDirection.forward,
-  })  : assert(frameHeight != null || rows != null, 'Either frameHeight or rows must be provided.'),
-        assert(frameWidth != null || columns != null, 'Either frameWidth or columns must be provided.'),
+  })  : assert(frameHeight != null || rows != null,
+            'Either frameHeight or rows must be provided.'),
+        assert(frameWidth != null || columns != null,
+            'Either frameWidth or columns must be provided.'),
         columns = columns ?? (image.width ~/ (frameWidth ?? 1)),
         rows = rows ?? (image.height ~/ (frameHeight ?? 1));
 
@@ -104,5 +106,7 @@ class AnimationSheet {
   int get totalFrames => columns * rows;
 
   /// Whether this animation is considered reversed (reverse or reversePingPong).
-  bool get isReversed => direction == AnimationDirection.reverse || direction == AnimationDirection.reversePingPong;
+  bool get isReversed =>
+      direction == AnimationDirection.reverse ||
+      direction == AnimationDirection.reversePingPong;
 }
