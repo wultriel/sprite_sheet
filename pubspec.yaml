@@ -1,6 +1,6 @@
 name: sprite_sheet
 description: "Flutter package for working with 2D sprite sheet animations"
-version: 1.0.0
+version: 1.0.0+1
 homepage: https://github.com/wultriel/sprite_sheet
 
 environment:

@@ -45,19 +45,13 @@ SpriteSheet(
 ```
 ## 🎮 Demos
 
-Here are some pixel art demos built using this package:
-
-| 🏃‍♂️ Flip Animations | 🎞️ Animation Queuing | 🌈 Dynamic Glow|
-|--|--|--|
-
-<iframe
-  src="https://wultriel.github.io/sprite_sheet/"
-  width="100%"
-  height="200"
-></iframe>
+Here are some pixel art demos built using this package:  
+|[![Try Demo](https://img.shields.io/badge/Try-Demo-blue?style=for-the-badge)](https://wultriel.github.io/sprite_sheet/) | 🏃‍♂️ Flip Animations | 🎞️ Animation Queuing | 🌈 Dynamic Glow|
+|--|--|--|--|
 
 >*It's scrollable btw*
-> Check out the example folder to see the code of the demo.
+>
+> Check out the [example folder](https://github.com/wultriel/sprite_sheet/blob/main/example/lib/main.dart) to see the code of the demo.
 
 ## 🔍 Classes Overview
 |Class| Description
