@@ -90,6 +90,7 @@ class _CharAnimationState extends State<CharAnimation> {
                       Text(
                         'Try to tap on the sprite!',
                         style: TextStyle(color: Colors.black),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),

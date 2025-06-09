@@ -67,7 +67,7 @@ class _EyesAnimationState extends State<EyesAnimation> {
       color: backgroundColor,
       child: Center(
         child: SizedBox(
-          height: 100,
+          height: 160,
           width: 200,
           child: controller != null
               ? Center(
@@ -90,8 +90,12 @@ class _EyesAnimationState extends State<EyesAnimation> {
                           ),
                         ),
                       ),
-                      SizedBox.square(dimension: 32),
-                      Text('Queuing animations'),
+                      SizedBox.square(dimension: 16),
+                      Text(
+                        'Queuing animations',
+                        style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
                     ],
                   ),
                 )

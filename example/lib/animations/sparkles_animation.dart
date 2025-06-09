@@ -72,7 +72,11 @@ class _SparklesAnimationState extends State<SparklesAnimation> {
                         ),
                       ),
                       SizedBox.square(dimension: 16),
-                      Text('Glow effect'),
+                      Text(
+                        'Glow effect',
+                        style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
                     ],
                   ),
                 )
