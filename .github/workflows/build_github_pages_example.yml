@@ -19,11 +19,11 @@ jobs:
         with:
           channel: stable
 
-      - name: Bootstrap
+      - name: Install dependencies
         run: |
           flutter pub get
 
-      - name: Build example
+      - name: Build web release
         working-directory: example
         run: |
           flutter pub get
@@ -33,4 +33,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
+          publish_dir: ./example/build/web
