@@ -73,11 +73,10 @@ class SpriteController<T> extends ChangeNotifier {
   /// The [dx] value is the column (X), and [dy] is the row (Y).
   Offset get offsetFrame => _currentFrame;
 
-  int get frame {
-    return (_currentFrame.dx +
-            _currentFrame.dy * ((currentAnimationSheet?.columns ?? 1)))
-        .toInt();
-  }
+  /// Returns the current frame index of the sprite animation.
+  int get frame => (_currentFrame.dx +
+          _currentFrame.dy * ((currentAnimationSheet?.columns ?? 1)))
+      .toInt();
 
   /// Whether the animation is actively playing.
   bool get isPlaying => _isPlaying;
@@ -177,10 +176,20 @@ class SpriteController<T> extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Adds the specified [animation] to the queue for processing or playback.
+  ///
+  /// This method enqueues an animation of type [T], allowing it to be managed
+  /// or played in sequence by the controller.
+  ///
+  /// [animation]: The animation instance to add to the queue.
   void addToQueue(T animation) {
     _queue.add(animation);
   }
 
+  /// Moves the sprite animation to the specified frame offset.
+  ///
+  /// [frameOffset] specifies the position of the frame to seek to within the sprite sheet.
+  /// This can be used to jump to a specific frame in the animation sequence.
   void seek(Offset frameOffset) {
     final columns = currentAnimationSheet?.columns ?? 1;
     final rows = currentAnimationSheet?.rows ?? 1;
@@ -189,8 +198,16 @@ class SpriteController<T> extends ChangeNotifier {
     var dy = frameOffset.dy % rows;
 
     _currentFrame = Offset(dx, dy);
+    notifyListeners();
   }
 
+  /// Moves the sprite animation to the specified frame index.
+  ///
+  /// [index]: The zero-based index of the frame to display.
+  /// If the index is out of bounds, the method may throw an error or clamp the value,
+  /// depending on the implementation.
+  ///
+  /// Use this method to manually control which frame of the sprite sheet is shown.
   void seekFrame(int index) {
     final columns = currentAnimationSheet?.columns ?? 1;
 
@@ -198,6 +215,7 @@ class SpriteController<T> extends ChangeNotifier {
     final dy = index ~/ columns;
 
     _currentFrame = Offset(dx.toDouble(), dy.toDouble());
+    notifyListeners();
   }
 
   /// Called internally by a timer to update the animation frame.
