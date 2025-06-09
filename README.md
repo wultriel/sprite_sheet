@@ -47,9 +47,17 @@ SpriteSheet(
 
 Here are some pixel art demos built using this package:
 
-| 🏃‍♂️ Run Animation | 🔥 Queuing animations | 🌈 Dynamic Glow|
+| 🏃‍♂️ Flip Animations | 🎞️ Animation Queuing | 🌈 Dynamic Glow|
 |--|--|--|
-> Check out the /example folder for runnable demo code.
+
+<iframe
+  src="https://wultriel.github.io/sprite_sheet/"
+  width="100%"
+  height="200"
+></iframe>
+
+>*It's scrollable btw*
+> Check out the example folder to see the code of the demo.
 
 ## 🔍 Classes Overview
 |Class| Description
