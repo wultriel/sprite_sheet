@@ -1,0 +1,17 @@
+name: sprite_sheet
+description: "Flutter package for working with 2D sprite sheet animations"
+version: 1.0.0
+homepage: https://github.com/wultriel/sprite_sheet
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
